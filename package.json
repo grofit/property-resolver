@@ -1,0 +1,25 @@
+{
+  "name": "property-resolver",
+  "version": "0.0.1",
+  "main": "dist/property-resolver.js",
+  "files": [ "dist/property-resolver.js" ],
+  "devDependencies": {
+    "gulp": "3.9.0",
+    "gulp-typescript": "2.10.0",
+    "rimraf": "latest",
+    "mkdirp": "latest",
+    "webpack-stream": "^3.1.0",
+    "require-dir": "^0.1.0",
+    "merge2": "latest",
+    "del": "latest",
+    "chai": "latest",
+    "chai-as-promised": "5.2.0",
+    "karma": "^0.13.19",
+    "mocha": "latest",
+    "karma-mocha": "latest",
+    "karma-firefox-launcher": "latest",
+    "karma-chai": "^0.1.0",
+    "karma-chai-as-promised": "0.1.2",
+    "karma-typescript-preprocessor": "latest"
+  }
+}
