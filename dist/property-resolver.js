@@ -110,6 +110,42 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return chain[chain.length - 1];
 	        };
 	    }
+	    PropertyResolver.prototype.decomposePropertyRoute = function (propertyRoute) {
+	        var routeComponents = [];
+	        var arrayIndex;
+	        var splitRoutes = propertyRoute.split(".");
+	        for (var i = 0; i < splitRoutes.length; i++) {
+	            if (this.indexRegex.test(splitRoutes[i])) {
+	                arrayIndex = this.indexRegex.exec(splitRoutes[i])[1];
+	                routeComponents.push(splitRoutes[i].replace(this.indexRegex, ""));
+	                routeComponents.push("[" + arrayIndex + "]");
+	            }
+	            else {
+	                routeComponents.push(splitRoutes[i]);
+	            }
+	        }
+	        return routeComponents;
+	    };
+	    PropertyResolver.prototype.getPropertyRouteSection = function (propertyRoute, sectionIndex) {
+	        if (sectionIndex === void 0) { sectionIndex = 0; }
+	        var routeComponents = this.decomposePropertyRoute(propertyRoute);
+	        return routeComponents[sectionIndex];
+	    };
+	    PropertyResolver.prototype.buildPropertyRoute = function (propertySections) {
+	        var propertyRoute = "";
+	        for (var i = 0; i < propertySections.length; i++) {
+	            if (propertyRoute.length == 0) {
+	                propertyRoute += propertySections[i];
+	                continue;
+	            }
+	            if (propertySections[i].indexOf("[") >= 0) {
+	                propertyRoute += "" + propertySections[i];
+	                continue;
+	            }
+	            propertyRoute += "." + propertySections[i];
+	        }
+	        return propertyRoute;
+	    };
 	    return PropertyResolver;
 	})();
 	exports.PropertyResolver = PropertyResolver;

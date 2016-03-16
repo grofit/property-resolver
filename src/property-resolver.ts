@@ -63,4 +63,49 @@ export class PropertyResolver
         propertyChain.split(this.splitRegex).forEach(processChain);
         return chain[chain.length - 1];
     };
+
+    public decomposePropertyRoute(propertyRoute: string): Array<string> {
+        var routeComponents = [];
+        var arrayIndex;
+        var splitRoutes = propertyRoute.split(".");
+        for(var i=0; i<splitRoutes.length; i++){
+            if(this.indexRegex.test(splitRoutes[i]))
+            {
+                arrayIndex = this.indexRegex.exec(splitRoutes[i])[1];
+                routeComponents.push(splitRoutes[i].replace(this.indexRegex, ""));
+                routeComponents.push(`[${arrayIndex}]`);
+            }
+            else
+            {
+                routeComponents.push(splitRoutes[i]);
+            }
+        }
+        return routeComponents;
+    }
+
+    public getPropertyRouteSection(propertyRoute: string, sectionIndex = 0) {
+        var routeComponents = this.decomposePropertyRoute(propertyRoute);
+        return routeComponents[sectionIndex];
+    }
+
+    public buildPropertyRoute(propertySections: Array<string>) {
+        var propertyRoute = "";
+        for(var i=0; i<propertySections.length; i++)
+        {
+            if(propertyRoute.length == 0)
+            {
+                propertyRoute += propertySections[i];
+                continue;
+            }
+
+            if(propertySections[i].indexOf("[") >= 0)
+            {
+                propertyRoute += `${propertySections[i]}`;
+                continue;
+            }
+
+            propertyRoute += `.${propertySections[i]}`;
+        }
+        return propertyRoute;
+    }
 }

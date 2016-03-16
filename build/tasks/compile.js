@@ -8,7 +8,7 @@ gulp.task('compile', function() {
         .pipe(ts({
             declaration: true,
             module: "commonjs",
-            target: "es5"
+            target: "es3"
         }));
 
     return merge([

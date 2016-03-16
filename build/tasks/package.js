@@ -8,7 +8,6 @@ gulp.task('package', ["compile"], function () {
             output: {
                 entry: "property-resolver.js",
                 filename: "property-resolver.js",
-                library: "PropertyResolver",
                 libraryTarget: "umd"
             }
         }))

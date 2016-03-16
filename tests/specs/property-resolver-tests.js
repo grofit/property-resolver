@@ -53,4 +53,51 @@ describe('Property Resolver', function () {
         expect(valueProperty).equals(1);
     });
 
+
+    it('should build a property route', function () {
+        var expectedPropertyRoute = "foo.bar[0].moo";
+        var somePropertyRoute = [
+            "foo",
+            "bar",
+            "[0]",
+            "moo"
+        ];
+
+        var propertyChainProcessor = new PropertyResolver();
+
+        var actualPropertyRoute = propertyChainProcessor.buildPropertyRoute(somePropertyRoute);
+        expect(actualPropertyRoute).equals(expectedPropertyRoute);
+    });
+
+    it('should decompose a property route', function () {
+        var expectedPropertyRoute = [
+            "foo",
+            "bar",
+            "[0]",
+            "moo"
+        ];
+        var somePropertyRoute = "foo.bar[0].moo";
+
+        var propertyChainProcessor = new PropertyResolver();
+
+        var actualPropertyRoute = propertyChainProcessor.decomposePropertyRoute(somePropertyRoute);
+        expect(actualPropertyRoute).eql(expectedPropertyRoute);
+    });
+
+    it('should get section of a property route', function () {
+        var somePropertyRoute = "foo.bar[0].moo";
+
+        var propertyChainProcessor = new PropertyResolver();
+
+        var section0 = propertyChainProcessor.getPropertyRouteSection(somePropertyRoute);
+        var section1 = propertyChainProcessor.getPropertyRouteSection(somePropertyRoute, 1);
+        var section2 = propertyChainProcessor.getPropertyRouteSection(somePropertyRoute, 2);
+        var section3 = propertyChainProcessor.getPropertyRouteSection(somePropertyRoute, 3);
+
+        expect(section0).equals("foo");
+        expect(section1).equals("bar");
+        expect(section2).equals("[0]");
+        expect(section3).equals("moo");
+    });
+
 });
