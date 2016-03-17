@@ -49,8 +49,16 @@ export class PropertyResolver
             else
             {
                 if(arrayIndex >= 0) {
-                    chain.push(check = model[key][arrayIndex]);
-                    lastkey = key[arrayIndex];
+                    if(key.length == 0)
+                    {
+                        chain.push(check = model[arrayIndex]);
+                        lastkey = arrayIndex;
+                    }
+                    else
+                    {
+                        chain.push(check = model[key][arrayIndex]);
+                        lastkey = key[arrayIndex];
+                    }
                 }
                 else
                 {
@@ -60,14 +68,15 @@ export class PropertyResolver
             }
         };
 
-        propertyChain.split(this.splitRegex).forEach(processChain);
+        var propertyRouteSections = propertyChain.split(this.splitRegex);
+        propertyRouteSections.forEach(processChain);
         return chain[chain.length - 1];
     };
 
     public decomposePropertyRoute(propertyRoute: string): Array<string> {
         var routeComponents = [];
         var arrayIndex;
-        var splitRoutes = propertyRoute.split(".");
+        var splitRoutes = propertyRoute.split(this.splitRegex);
         for(var i=0; i<splitRoutes.length; i++){
             if(this.indexRegex.test(splitRoutes[i]))
             {

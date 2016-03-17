@@ -97,8 +97,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	                else {
 	                    if (arrayIndex >= 0) {
-	                        chain.push(check = model[key][arrayIndex]);
-	                        lastkey = key[arrayIndex];
+	                        if (key.length == 0) {
+	                            chain.push(check = model[arrayIndex]);
+	                            lastkey = arrayIndex;
+	                        }
+	                        else {
+	                            chain.push(check = model[key][arrayIndex]);
+	                            lastkey = key[arrayIndex];
+	                        }
 	                    }
 	                    else {
 	                        lastkey = key;
@@ -106,14 +112,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                }
 	            };
-	            propertyChain.split(_this.splitRegex).forEach(processChain);
+	            var propertyRouteSections = propertyChain.split(_this.splitRegex);
+	            propertyRouteSections.forEach(processChain);
 	            return chain[chain.length - 1];
 	        };
 	    }
 	    PropertyResolver.prototype.decomposePropertyRoute = function (propertyRoute) {
 	        var routeComponents = [];
 	        var arrayIndex;
-	        var splitRoutes = propertyRoute.split(".");
+	        var splitRoutes = propertyRoute.split(this.splitRegex);
 	        for (var i = 0; i < splitRoutes.length; i++) {
 	            if (this.indexRegex.test(splitRoutes[i])) {
 	                arrayIndex = this.indexRegex.exec(splitRoutes[i])[1];

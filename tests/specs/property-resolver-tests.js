@@ -37,6 +37,30 @@ describe('Property Resolver', function () {
         expect(valueProperty).equals(1);
     });
 
+    it('should correctly resolve when starting in an array', function () {
+        var someObject = [
+            { someObject: { value: 1 } }
+        ];
+
+        var propertyChainProcessor = new PropertyResolver();
+
+        var valuePropertyChain = "[0].someObject.value";
+        var valueProperty = propertyChainProcessor.resolveProperty(someObject, valuePropertyChain);
+        expect(valueProperty).equals(1);
+    });
+
+    it('should correctly resolve when ending in an array', function () {
+        var someObject = [
+            { someObject: { someArray: [ 10, 20 ] } }
+        ];
+
+        var propertyChainProcessor = new PropertyResolver();
+
+        var valuePropertyChain = "[0].someObject.someArray[1]";
+        var valueProperty = propertyChainProcessor.resolveProperty(someObject, valuePropertyChain);
+        expect(valueProperty).equals(20);
+    });
+
     it('should correctly resolve objects within arrays within arrays', function () {
         var someObject = {
             someArray: [
