@@ -1,1 +1,1 @@
-export * from "dist/property-resolver.d.ts"
+export * from "./dist/property-resolver.d.ts"
