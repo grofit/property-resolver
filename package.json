@@ -1,6 +1,6 @@
 {
   "name": "property-resolver",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/property-resolver.js",
   "files": [ "dist/property-resolver.js" ],
   "devDependencies": {
