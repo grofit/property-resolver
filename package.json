@@ -1,8 +1,12 @@
 {
   "name": "property-resolver",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/property-resolver.js",
-  "files": [ "dist/property-resolver.js" ],
+  "files": [ 
+  "dist/**", 
+  "readme.md", 
+  "index.d.ts"
+  ],
   "devDependencies": {
     "gulp": "3.9.0",
     "gulp-typescript": "2.10.0",
