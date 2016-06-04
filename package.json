@@ -7,6 +7,9 @@
   "readme.md", 
   "index.d.ts"
   ],
+  "scripts": {
+    "test": "karma start --single-run --browsers PhantomJS ./tests/karma.conf.js"
+  },
   "devDependencies": {
     "gulp": "3.9.0",
     "gulp-typescript": "2.10.0",
