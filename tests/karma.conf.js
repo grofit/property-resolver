@@ -27,7 +27,7 @@ module.exports = function(config) {
         autoWatch: false,
 
         // start these browsers
-        browsers: ['Firefox'],
+        browsers: ['PhantomJS'],
 
         // Continuous Integration mode
         singleRun: false

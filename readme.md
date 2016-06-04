@@ -1,5 +1,7 @@
 # PropertyResolver
 
+[![Build Status](https://travis-ci.org/grofit/property-resolver.svg?branch=master)](https://travis-ci.org/grofit/property-resolver)
+
 A simple class for allowing string based property resolving on models, like so:
 
 ```js
