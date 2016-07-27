@@ -12,7 +12,7 @@ gulp.task('compile', function() {
         }));
 
     return merge([
-        tsResult.dts.pipe(gulp.dest(paths.dist)),
-        tsResult.js.pipe(gulp.dest(paths.dist))
+        tsResult.dts.pipe(gulp.dest(paths.dist + "/descriptors")),
+        tsResult.js.pipe(gulp.dest(paths.dist + "/commonjs"))
     ]);
 });

@@ -8,7 +8,7 @@ module.exports = function(config) {
 
         files: [
             "tests/specs/**/*.js",
-            "dist/*.js"
+            "dist/browser/*.js"
         ],
 
         // test result reporter

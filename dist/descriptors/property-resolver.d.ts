@@ -1,4 +1,5 @@
-export declare class PropertyResolver {
+import { IPropertyResolver } from "./iproperty-resolver";
+export declare class PropertyResolver implements IPropertyResolver {
     private indexRegex;
     private splitRegex;
     resolveProperty: (model: any, propertyChain: string) => any;

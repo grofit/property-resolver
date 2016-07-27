@@ -1,11 +1,12 @@
 {
   "name": "property-resolver",
-  "version": "0.0.7",
-  "main": "dist/property-resolver.js",
+  "version": "0.0.8",
+  "main": "dist/commonjs/index.js",
+  "typings": "dist/descriptors/index.d.ts",
   "files": [ 
-  "dist/**", 
-  "readme.md", 
-  "index.d.ts"
+    "dist/**",
+    "readme.md",
+    "index.d.ts"
   ],
   "scripts": {
     "test": "karma start --single-run --browsers PhantomJS ./tests/karma.conf.js"

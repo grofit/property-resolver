@@ -1,4 +1,6 @@
-export class PropertyResolver
+import {IPropertyResolver} from "./iproperty-resolver";
+
+export class PropertyResolver implements IPropertyResolver
 {
     private indexRegex = /\[(\d)]/;
     private splitRegex =  /\./;

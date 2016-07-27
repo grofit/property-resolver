@@ -3,14 +3,14 @@ var gulp = require("gulp");
 var webpack = require("webpack-stream");
 
 gulp.task('package', ["compile"], function () {
-    return gulp.src([paths.dist + "/property-resolver.js"])
+    return gulp.src([paths.dist + "/index.js"])
         .pipe(webpack({
             output: {
-                entry: "property-resolver.js",
-                filename: "property-resolver.js",
+                entry: "index.js",
+                filename: "property-resolver.browser.js",
                 libraryTarget: "umd"
             }
         }))
-        .pipe(gulp.dest(paths.dist));
+        .pipe(gulp.dest(paths.dist + "/browser"));
 });
 
