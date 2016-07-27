@@ -22,7 +22,7 @@ var value = propertyResolver.resolveProperty(someObject, "someArray[0].someObjec
 
 ## Usage
 
-It is exported using UMD so if you want it in node do:
+It is exported using UMD for browsers (`dist/browser`) and CommonJS for node/modules so if you want it that way just do a normal require:
 
 `var PropertyResolver = require("property-resolver");`
 

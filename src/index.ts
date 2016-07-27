@@ -1,2 +1,3 @@
 export {IPropertyResolver} from "./iproperty-resolver";
-export {PropertyResolver} from "./property-resolver";
+import {PropertyResolver} from "./property-resolver";
+export = PropertyResolver;
