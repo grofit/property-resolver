@@ -3,7 +3,7 @@ var gulp = require("gulp");
 var webpack = require("webpack-stream");
 
 gulp.task('package', ["compile"], function () {
-    return gulp.src([paths.dist + "/index.js"])
+    return gulp.src([paths.dist + "/commonjs/index.js"])
         .pipe(webpack({
             output: {
                 entry: "index.js",

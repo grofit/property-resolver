@@ -5,7 +5,7 @@
 A simple class for allowing string based property resolving on models, like so:
 
 ```js
-var PropertyResolver = require("property-resolver");
+var PropertyResolver = require("property-resolver").PropertyResolver;
 
 var someObject = {
     someArray: [
@@ -24,7 +24,7 @@ var value = propertyResolver.resolveProperty(someObject, "someArray[0].someObjec
 
 It is exported using UMD for browsers (`dist/browser`) and CommonJS for node/modules so if you want it that way just do a normal require:
 
-`var PropertyResolver = require("property-resolver");`
+`var PropertyResolver = require("property-resolver").PropertyResolver;`
 
 or if you want to use it in the browser it will self register the `PropertyResolver` global.
 
