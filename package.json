@@ -1,8 +1,8 @@
 {
   "name": "property-resolver",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "dist/commonjs/index.js",
-  "typings": "dist/descriptors/index.d.ts",
+  "typings": "dist/definitions/index.d.ts",
   "files": [ 
     "dist/**",
     "readme.md",

@@ -1,1 +1,1 @@
-export * from "./dist/descriptors/index.d.ts"
+export * from "./dist/definitions/index.d.ts"
